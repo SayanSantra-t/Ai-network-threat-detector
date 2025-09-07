@@ -57,17 +57,6 @@ No traffic data leaves your machine; analysis is local.
 
 Designed for educational and local network monitoring purposes.
 
-File Structure
-text
-project/
-├── ainet.py
-├── app.py
-├── requirements.txt
-├── templates/index.html
-├── static/
-│   ├── style.css
-│   ├── script.js
-│   └── gojo1.jpg
-├── network_traffic_*.csv
-└── README.txt
+
+
 Enjoy monitoring your network with the power of Gojo Satoru's Domain Expansion!
