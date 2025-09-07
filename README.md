@@ -25,8 +25,9 @@ Clone or copy the project files.
 
 Install required Python packages:
 
-text
+
 pip install -r requirements.txt
+
 Ensure Wireshark and tshark are installed and accessible in your system's PATH.
 
 Place a Gojo image named gojo1.jpg into the static/ folder for the theme.
@@ -34,8 +35,9 @@ Place a Gojo image named gojo1.jpg into the static/ folder for the theme.
 Running the Project
 Start the web app:
 
-text
+
 python app.py
+
 Open a browser and go to: http://127.0.0.1:5000
 
 Click "⚡ ACTIVATE CURSED TECHNIQUE" to start network capture and threat detection.
