@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMAIN EXPANSION: INFINITE VOID</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="void-container">
+        <!-- Video Background -->
+        <div class="video-background">
+            <iframe id="background-video" 
+                    src="https://www.youtube.com/embed/jJVZVGK8YFo?autoplay=1&mute=1&loop=1&playlist=jJVZVGK8YFo&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&start=0" 
+                    frameborder="0" 
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen>
+            </iframe>
+            <div class="video-overlay"></div>
+        </div>
+        
+        <!-- Main Container -->
+        <div class="domain-container">
+            <header class="domain-header">
+                <div class="gojo-image">
+                    <img src="{{ url_for('static', filename='gojo1.jpg') }}" alt="Gojo Satoru" class="gojo-avatar">
+                </div>
+                <div class="domain-title">
+                    <h1 class="void-title">
+                        <span class="domain-text">DOMAIN EXPANSION:</span>
+                        <span class="infinite-text">INFINITE VOID</span>
+                    </h1>
+                    <p class="void-subtitle">🌌 Network Threat Detection System - Six Eyes Protocol 🌌</p>
+                    <div class="six-eyes">
+                        <div class="eye eye-1"></div>
+                        <div class="eye eye-2"></div>
+                        <div class="eye eye-3"></div>
+                        <div class="eye eye-4"></div>
+                        <div class="eye eye-5"></div>
+                        <div class="eye eye-6"></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="cursed-technique-panel">
+                <button id="startCaptureBtn" class="hollow-purple-btn">
+                    <span class="btn-energy"></span>
+                    <span class="btn-text">⚡ ACTIVATE CURSED TECHNIQUE</span>
+                </button>
+                <button id="scanBtn" class="limitless-btn">
+                    <span class="btn-text">👁️ SCAN INFINITE VOID</span>
+                </button>
+                <div class="technique-status">
+                    <div class="status-display">
+                        <span id="statusText">Ready to expand domain...</span>
+                        <div class="void-progress">
+                            <div id="progressFill" class="progress-energy"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auto-Load Latest Results -->
+            <div id="autoLoadSection" class="domain-expansion" style="display: none;">
+                <div class="expansion-message">
+                    <div class="technique-complete">
+                        <div class="completion-visual">
+                            <div class="success-ring"></div>
+                            <div class="checkmark">✓</div>
+                        </div>
+                        <p>⚡ DOMAIN EXPANSION COMPLETE! ⚡</p>
+                        <p class="void-message">All threats captured in infinite void...</p>
+                        <button id="loadLatestBtn" class="void-analysis-btn">
+                            🔮 ANALYZE INFINITE VOID
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Selection -->
+            <div id="fileSelection" class="cursed-files-section" style="display: none;">
+                <h3 class="section-title">📜 CURSED TECHNIQUE ARCHIVES</h3>
+                <div id="fileList" class="void-grid"></div>
+            </div>
+
+            <!-- Main Dashboard -->
+            <div id="dashboard" class="infinite-dashboard" style="display: none;">
+                <div class="dashboard-header">
+                    <h2 id="currentFileName" class="analysis-title">🔮 VOID ANALYSIS RESULTS</h2>
+                    <div class="technique-actions">
+                        <button id="downloadBtn" class="download-technique-btn">💾 EXTRACT DATA</button>
+                        <button id="deleteBtn" class="erase-technique-btn">🗑️ ERASE FROM VOID</button>
+                    </div>
+                </div>
+
+                <!-- Stats with Gojo Theme -->
+                <div class="void-stats">
+                    <div class="stat-card total-card">
+                        <div class="stat-icon">📊</div>
+                        <h3>TOTAL PACKETS</h3>
+                        <div id="totalPackets" class="stat-number">0</div>
+                        <div class="stat-label">Captured in Void</div>
+                    </div>
+                    <div class="stat-card safe-card">
+                        <div class="stat-icon">✅</div>
+                        <h3>SAFE PACKETS</h3>
+                        <div id="safePackets" class="stat-number">0</div>
+                        <div class="stat-label">Protected by Limitless</div>
+                    </div>
+                    <div class="stat-card threat-card">
+                        <div class="stat-icon">⚠️</div>
+                        <h3>CURSED THREATS</h3>
+                        <div id="threatsDetected" class="stat-number">0</div>
+                        <div class="stat-label">Detected by Six Eyes</div>
+                    </div>
+                    <div class="stat-card rate-card">
+                        <div class="stat-icon">🔒</div>
+                        <h3>PROTECTION RATE</h3>
+                        <div id="safetyRate" class="stat-number">100%</div>
+                        <div class="stat-label">Domain Efficiency</div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="void-analytics">
+                    <div class="chart-void">
+                        <h3 class="chart-title">⚡ CURSED ENERGY DISTRIBUTION</h3>
+                        <div class="chart-frame">
+                            <canvas id="protocolChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-void">
+                        <h3 class="chart-title">🌀 VOID SOURCE ANALYSIS</h3>
+                        <div class="chart-frame">
+                            <canvas id="sourceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Threat Analysis -->
+                <div id="threatSection" class="cursed-analysis">
+                    <div class="analysis-header">
+                        <div class="threat-visual">
+                            <div class="warning-eye"></div>
+                        </div>
+                        <h3>🚨 SIX EYES THREAT ANALYSIS</h3>
+                    </div>
+                    <div id="threatInfo" class="threat-details"></div>
+                </div>
+
+                <!-- Data Tables -->
+                <div class="void-data-section">
+                    <div class="section-header">
+                        <h3 class="data-title">📋 INFINITE VOID DATABASE</h3>
+                        <div class="void-controls">
+                            <button id="showAllBtn" class="void-filter-btn active">SHOW ALL</button>
+                            <button id="showThreatsBtn" class="void-filter-btn">CURSED ONLY</button>
+                            <button id="showSafeBtn" class="void-filter-btn">SAFE ONLY</button>
+                        </div>
+                    </div>
+                    <div id="dataTable" class="void-table"></div>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div id="instructions" class="technique-guide">
+                <div class="guide-header">
+                    <div class="guide-visual">
+                        <div class="teacher-icon">🎓</div>
+                    </div>
+                    <h3>🎓 CURSED TECHNIQUE MANUAL</h3>
+                </div>
+                <div class="guide-content">
+                    <div class="technique-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <strong>Domain Expansion:</strong> Click "ACTIVATE CURSED TECHNIQUE" to expand the infinite void
+                        </div>
+                    </div>
+                    <div class="technique-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <strong>Six Eyes Analysis:</strong> The system captures network threats for 30 seconds
+                        </div>
+                    </div>
+                    <div class="technique-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <strong>Limitless Processing:</strong> AI analyzes packets using cursed energy
+                        </div>
+                    </div>
+                    <div class="technique-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <strong>Hollow Purple Results:</strong> View detailed threat analysis in the void
+                        </div>
+                    </div>
+                </div>
+                <div class="power-note">
+                    <strong>⚡ REMEMBER:</strong> This domain requires administrator privileges and ainet.py in the same directory. The strongest sorcerer protects your network!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio for CSV loading -->
+    <audio id="gojoDomainAudio" preload="auto">
+        <source src="{{ url_for('static', filename='gojo_domain.mp3') }}" type="audio/mpeg">
+        <source src="{{ url_for('static', filename='gojo_domain.wav') }}" type="audio/wav">
+    </audio>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
